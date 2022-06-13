@@ -47,7 +47,9 @@ public class TC01 {
         Thread.sleep(3000);
         String expectedTitle="All - Vehicles Model - Entities - System - Car - Entities - System";
         String actualTitle=driver.getTitle();
-        Assert.assertEquals(actualTitle,expectedTitle);
-
+        Assert.assertEquals(actualTitle,expectedTitle, actualTitle+" is here");
+driver.quit();
     }
+
+
 }
