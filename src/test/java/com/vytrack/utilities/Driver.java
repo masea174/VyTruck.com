@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
-<<<<<<< HEAD
+
     private Driver(){
     }
    private static WebDriver driver;
@@ -44,46 +44,5 @@ public class Driver {
             driver.quit();// will kill the sesion so u need to assing the null value to the  singleton method to work
             driver=null;
         }}
-
-=======
-
-    private Driver(){}
-
-    private static WebDriver driver;
-
-    public static WebDriver getDriver(){
-        if(driver == null){
-            String browser = ConfigurationReader.getProperty("browser");
-            switch (browser) {
-                case "chrome":
-                default:
-
-                    WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-                    break;
-
-                case "firefox":
-
-                    WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-            }
-        }
-        return driver;
-    }
-
-    public static void driverClose(){
-        if(driver != null){
-            driver.quit();
-            driver = null;
-        }
-
-
-    }
->>>>>>> master
 
 }
