@@ -1,6 +1,6 @@
-package com.vytrack.US02;
+package com.vytrack.others.US02;
 
-import com.vytrack.WebDriverFactory;
+import com.vytrack.others.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
