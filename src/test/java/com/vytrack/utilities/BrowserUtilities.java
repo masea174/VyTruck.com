@@ -10,9 +10,11 @@ import org.testng.Assert;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
-public class DriverUtilities {
-    public static void verifyTitle(WebDriver driver, String expectedTitle){
+public class BrowserUtilities {
+ public static void verifyTitle(WebDriver driver, String expectedTitle){
+     Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         Assert.assertEquals(driver.getTitle(),expectedTitle);
     }
 
@@ -109,10 +111,15 @@ public class DriverUtilities {
                 }
             }
             nextButton.click();
-            DriverUtilities.waitFor(2);
+            BrowserUtilities.waitFor(2);
         }
         while(!Driver.getDriver().getCurrentUrl().equals(str));
         return flag;
+    }
+
+    public static void waitToLoad(String title){
+        WebDriverWait wait=new WebDriverWait(Driver.getDriver(), 10);
+        wait.until(ExpectedConditions.titleIs(title));
     }
 
 }
