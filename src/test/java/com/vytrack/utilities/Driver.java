@@ -13,11 +13,12 @@ public class Driver {
     private Driver(){
     }
    private static WebDriver driver;
-    RemoteWebDriver
+
 
     public static WebDriver getDriver(){
         //it will check if the driver is null and if its we will set uo browser inside the if statement
         //if you already have the driver set up it will return you that one otherway it will create you a driver
+
 
         if(driver==null){
 
