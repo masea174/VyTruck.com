@@ -1,4 +1,4 @@
 package com.vytrack.pages;
 
-public class CarEntitlesPage {
+public class CarEntitlesPage{
 }

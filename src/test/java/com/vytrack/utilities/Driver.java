@@ -22,9 +22,6 @@ public class Driver {
 
         if(driver==null){
 
-
-
-
             // we read the browser type from configuration reader class with get property
             String browserType=ConfigurationReader.getProperty("browser");
             switch (browserType){
