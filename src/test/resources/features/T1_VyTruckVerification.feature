@@ -1,8 +1,8 @@
 Feature: Verification  the click functionality of the "Export Grid" Dropdown
  Background:
-  Given  Truck Driver on DashboardPage
+  Given  Truck Driver on Vehicle Page
 
 Scenario: Verification  the click functionality of the "Export Grid" Dropdown
 
-  When  select Vehicle feature under Fleet module
-  Then  Export Grid dropdown should be clickable
+  When  Export Grid dropdown is clicked
+  Then  CSV and XLSX links should be displayed

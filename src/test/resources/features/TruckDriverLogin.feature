@@ -1,3 +1,5 @@
+
+@login
 Feature:  Truck driver login with valid credentials
 
   Background:

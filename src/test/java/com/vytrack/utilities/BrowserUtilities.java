@@ -1,64 +1,82 @@
 package com.vytrack.utilities;
 
 import com.github.javafaker.Faker;
+import com.vytrack.pages.DashboardPage;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class BrowserUtilities {
- public static void verifyTitle(WebDriver driver, String expectedTitle){
-     Driver.getDriver().manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
-        Assert.assertEquals(driver.getTitle(),expectedTitle);
+    DashboardPage dashboardPage=new DashboardPage();
+    static WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
+    public static void verifyTitle( String expectedTitle){
+        Assert.assertEquals(expectedTitle,Driver.getDriver().getTitle());
     }
+//    Create a new class called BrowserUtils
+//2. Create a method to make Multiple Windows logic re-usable
+//3. When method is called, it should switch window and verify
+//    title.
+//
+//
+//    Method info:
+//            • Name: switchWindowAndVerify
+//• Return type: void
+//• Arg1: WebDriver
+//• Arg2: String expectedInUrl
+//• Arg3: String expectedTitle
 
-
-    public static void switchWindowAndVerify(WebDriver driver,String expectedInUrl, String expectedTitle){
-        Set<String> windowHandles = driver.getWindowHandles();
+    public static void switchWindowAndVerify(String expectedInUrl, String expectedTitle){
+        Set<String> windowHandles = Driver.getDriver().getWindowHandles();
         for(String each:windowHandles){
-            driver.switchTo().window(each);
-            if( driver.getCurrentUrl().contains(expectedInUrl)){
+            Driver.getDriver().switchTo().window(each);
+            if( Driver.getDriver().getCurrentUrl().contains(expectedInUrl)){
                 break;
             }
         }
-        Assert.assertTrue(driver.getTitle().contains(expectedTitle),"Title verification Failed!!!");
+        Assert.assertTrue("Title verification Failed!!!", Driver.getDriver().getTitle().contains(expectedTitle));
 
     }
     public static void waitForInvisibilityOf(WebElement element){
         WebDriverWait wait=new WebDriverWait(Driver.getDriver(),10);
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
-    //Return a list of string from a list of elements */
-    public static List<String> getElementsText(List<WebElement> list) {
-        List<String> elemTexts = new ArrayList<>();
-        for (WebElement el : list) {
-            elemTexts.add(el.getText());
-        }
-        return elemTexts;
-    }
+    public static void waitFor(int seconds){
 
-
-    /** 3. Performs a pause */
-    public static void waitFor(int seconds) {
         try {
             Thread.sleep(seconds * 1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+
     }
 
 
-    /** 4. Waits for element matching the locator to be visible on the page */
-    public static WebElement waitForVisibility(By locator, int timeout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), timeout);
-        return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    public static List<String> getElementsText(List<WebElement> elements) {
+
+
+        List<String> elementsText=new ArrayList<>();
+
+        for (WebElement element : elements) {
+            elementsText.add( element.getText());
+        }
+
+        return elementsText;
     }
+
+
+    public static List<String> getElementsTextWithStream(List<WebElement> elements) {
+
+        return elements.stream().map(x->x.getText()).collect(Collectors.toList());
+    }
+
     /** 5. Scrolls down to an element using JavaScript */
     public static void scrollToElement(WebElement element) {
         ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
@@ -82,7 +100,7 @@ public class BrowserUtilities {
     }
     /** 8. Check Element is not Located */
     public static boolean waitForElementIsNotLocated(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), 5);
+
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             return true;

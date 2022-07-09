@@ -1,18 +1,17 @@
 package com.vytrack.others.US14;
 
 import com.vytrack.others.WebDriverFactory;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
 
 import java.util.concurrent.TimeUnit;
 
 public class TC02 {
     WebDriver driver;
-    @BeforeMethod
+
     void setUpLogin() throws InterruptedException {
         driver = WebDriverFactory.getDriver("chrome");
 
@@ -35,7 +34,7 @@ public class TC02 {
         Thread.sleep(3000);
     }
 
-    @Test
+
     public  void us06TC02() throws InterruptedException {
 
 //    Given store manager on " All - Vehicles Model - Entities - System - Car - Entities - System" page

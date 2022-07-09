@@ -12,41 +12,48 @@ public class Driver {
 
     private Driver(){
     }
-   private static WebDriver driver;
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
 
-    public static WebDriver getDriver(){
-        //it will check if the driver is null and if its we will set uo browser inside the if statement
-        //if you already have the driver set up it will return you that one otherway it will create you a driver
+    // Create a re-usable utility method which will return same driver instance when we call it
+    public static WebDriver getDriver() {
 
+        // it will check if driver is null and if it is we will set up browser inside if statement
+        // if you already setup driver and using it again for following line of codes, it will return to same driver
+        if (driverPool.get() == null) {
 
-        if(driver==null){
+            // We read browserType from configuration.properties with
+            // help of ConfigurationReader class' getProperty() method
+            String browserType = ConfigurationReader.getProperty("browser");
 
-            // we read the browser type from configuration reader class with get property
-            String browserType=ConfigurationReader.getProperty("browser");
-            switch (browserType){
-                default:
-                case"chrome":
+            switch(browserType){
+                case "chrome":
                     WebDriverManager.chromedriver().setup();
-                    driver=new ChromeDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new ChromeDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
-                case"firefox":
+                case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver=new FirefoxDriver();
-                    driver.manage().window().maximize();
-                    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+                    driverPool.set(new FirefoxDriver());
+                    driverPool.get().manage().window().maximize();
+                    driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
                     break;
-
             }
 
-        }return driver;
+        }
+
+        return driverPool.get();
+
     }
+
+    // This method will make sure our driver value is always null after using quit() method
     public static void closeDriver(){
-        if(driver!=null){
-            driver.quit();// will kill the sesion so u need to assing the null value to the  singleton method to work
-            driver=null;
-        }}
+        if(driverPool.get() != null){
+            driverPool.get().quit(); // this line will terminate the existing driver session. with using this driver will not be even null
+            driverPool.remove();  //driver = null
+        }
+
+    }
 
 }

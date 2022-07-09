@@ -1,18 +1,17 @@
 package com.vytrack.others.US14;
 
 import com.vytrack.others.WebDriverFactory;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
 
 import java.util.concurrent.TimeUnit;
 
 public class TC01 {
     WebDriver driver;
-    @BeforeMethod
+
     void setUpLogin() {
         driver = WebDriverFactory.getDriver("chrome");
 
@@ -29,7 +28,6 @@ public class TC01 {
         loginButton.click();
     }
 
-    @Test
     void us06TC01() throws InterruptedException {
 
 //    Given store manager on "Dashboard" page

@@ -1,12 +1,12 @@
 package com.vytrack.others.US14;
 
 import com.vytrack.others.WebDriverFactory;
+import org.junit.Assert;
+import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
+
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,7 +18,7 @@ public class TC03 {
 
     WebDriver driver;
 
-    @BeforeMethod
+
     void setUpLogin() throws InterruptedException {
         driver = WebDriverFactory.getDriver("chrome");
 
@@ -41,7 +41,7 @@ public class TC03 {
         Thread.sleep(3000);
     }
 
-    @Test
+
     void us14TC03() {
 
 
