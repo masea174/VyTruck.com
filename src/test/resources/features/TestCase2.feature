@@ -1,6 +1,6 @@
 
 
-@wip
+@smoke
 Feature: TC2 Verification of the "Export Grid" Left location
 
   Scenario: TC2 Verification of the "Export Grid" Left location

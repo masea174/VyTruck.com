@@ -27,9 +27,9 @@ public class LoginPage {
     @FindBy (xpath = "//div[@class='bar']")
     public WebElement loadingBar;
 
-    public void login(){
+    public void login(String loginName){
         Driver.getDriver().get(ConfigurationReader.getProperty("url"));
-        userNameInput.sendKeys(ConfigurationReader.getProperty("truckDriver"));
+        userNameInput.sendKeys(ConfigurationReader.getProperty(loginName));
         passwordInput.sendKeys(ConfigurationReader.getProperty("password"));
         loginBtn.click();
     }

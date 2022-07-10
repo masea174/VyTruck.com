@@ -14,9 +14,9 @@ public class Hooks extends TestBase {
     @Before
     public void setUp() throws Exception {
         System.out.println("Before scenario is running");
-        loginPage.login();
-        T2Executions.selects_vehicles_feature_under_fleet_module();
-        T2Executions.should_navigate_to_car_entitles_page();
+//        loginPage.login();
+//        T2Executions.selects_vehicles_feature_under_fleet_module();
+//        T2Executions.should_navigate_to_car_entitles_page();
     }
 
     @After
