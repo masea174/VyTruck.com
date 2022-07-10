@@ -1,5 +1,6 @@
 package com.vytrack.pages;
 
+import com.vytrack.utilities.ConfigurationReader;
 import com.vytrack.utilities.Driver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -20,6 +21,16 @@ public class LoginPage {
 
     @FindBy(id="_submit")
     public WebElement loginBtn;
+
+    @FindBy (xpath = "//div[@class='bar']")
+    public WebElement loadingBar;
+
+    public void login(){
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
+        userNameInput.sendKeys(ConfigurationReader.getProperty("truckDriver"));
+        passwordInput.sendKeys(ConfigurationReader.getProperty("password"));
+        loginBtn.click();
+    }
 
 
 
