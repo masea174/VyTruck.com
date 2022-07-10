@@ -44,8 +44,8 @@ public class T2Executions extends TestBase {
     @Then("Truck Driver on Vehicle Page")
     public static void should_navigate_to_car_entitles_page() {
         Driver.getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-BrowserUtilities.waitFor(5);
-     //   wait.until(ExpectedConditions.titleIs("Car - Entities - System - Car - Entities - System"));
+        BrowserUtilities.waitFor(5);
+        //   wait.until(ExpectedConditions.titleIs("Car - Entities - System - Car - Entities - System"));
         BrowserUtilities.verifyTitle("Car - Entities - System - Car - Entities - System");
     }
 

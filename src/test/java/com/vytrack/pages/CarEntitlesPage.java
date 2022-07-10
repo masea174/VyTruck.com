@@ -2,6 +2,7 @@ package com.vytrack.pages;
 
 import com.vytrack.utilities.Driver;
 import org.junit.Assert;
+import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -28,12 +29,23 @@ public class CarEntitlesPage {
 
     @FindBy(xpath = "//h1[contains(@class,'subtitle')]")
     public WebElement subTitle;
+
     @FindBy(css = "a[title='Reset']")
     public WebElement reset;
+
     @FindBy(css = "a[title='Grid Settings']")
     public WebElement gridSettings;
+
     @FindBy(xpath = "//div[@class='actions-panel pull-right form-horizontal']//div//a")
     public List<WebElement> listOfFilters;
+
+    @FindBy(xpath = "//a[@title='Refresh']")
+    public WebElement refresh;
+
+    @FindBy (xpath = "//label[@class='dib']")
+    public WebElement center;
+
+
 
 
     public void assertOneButtonIsLeftToAnother(String one, String two) {
@@ -77,6 +89,26 @@ public class CarEntitlesPage {
             default:
                 throw new Exception("Unknown dropdown option name:" + dropdownOptionName);
         }
+
+    }
+
+    public boolean isTheElementOnTheLeftSideOfPage(WebElement element){
+        Point location = element.getLocation();
+        String locationStr=""+location;
+        locationStr=locationStr.replace("(","").replace(")","");
+        String[] locationArr=locationStr.split(", ");
+        locationStr=locationArr[0];
+        int intLocationEl=Integer.parseInt(locationStr);
+
+        Point locationCenterPage = center.getLocation();
+        String locationCenter=""+locationCenterPage;
+        locationCenter=locationCenter.replace("(","").replace(")","");
+        String[] locationCenterArray=locationCenter.split(", ");
+        locationCenter=locationCenterArray[0];
+        int intLocationCenter=Integer.parseInt(locationCenter);
+
+        return intLocationCenter>intLocationEl;
+
 
     }
 

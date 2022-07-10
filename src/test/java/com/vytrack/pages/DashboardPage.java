@@ -2,6 +2,7 @@ package com.vytrack.pages;
 
 import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.TestBase;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -59,5 +60,15 @@ public class DashboardPage extends TestBase {
             default:
                 throw new Exception( "Unknown submodule name:" + vehicleName );
         }
+    }
+
+    public boolean ifButtonOnTheLeft(String buttonOne, String buttonTwo){
+        boolean check=false;
+        String xpath="";
+        xpath="//a[@title='"+buttonOne+"']/..//preceding-sibling::a[@title='"+buttonTwo+"']";
+        WebElement element=Driver.getDriver().findElement(By.xpath(xpath));
+        if(element.isDisplayed()){
+            check=true;
+        }return check;
     }
 }
