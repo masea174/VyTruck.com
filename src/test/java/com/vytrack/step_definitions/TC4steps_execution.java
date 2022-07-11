@@ -1,5 +1,7 @@
 package com.vytrack.step_definitions;
 
+import com.vytrack.utilities.ConfigurationReader;
+import com.vytrack.utilities.Driver;
 import com.vytrack.utilities.TestBase;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +12,7 @@ public class TC4steps_execution extends TestBase {
 
     @Given("{string} is on {string} page")
     public void is_on_page(String truckDriver, String vehiclesPage) throws Exception {
+        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         loginPage.login(truckDriver);
         dashboardPage.hoverOverToFleet("Fleet");
         dashboardPage.clickSubModule(vehiclesPage);

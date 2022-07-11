@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
         }
         @When("Truck driver inputs correct credentials")
         public static void truck_driver_inputs_correct_credentials() {
-           loginPage.login("trukDriver");
+           loginPage.login("TruckDriver");
         }
         @Then("Truck driver should navigate to DashboardPage")
         public static void truck_driver_should_navigate_to_dashboard_page() {

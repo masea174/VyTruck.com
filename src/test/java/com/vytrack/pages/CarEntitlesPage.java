@@ -46,6 +46,10 @@ public class CarEntitlesPage {
     public WebElement center;
 
 
+    @FindBy (xpath = "//div[@class='dropdown-menu']")
+    public WebElement popUpSettingsMenu;
+
+
 
 
     public void assertOneButtonIsLeftToAnother(String one, String two) {

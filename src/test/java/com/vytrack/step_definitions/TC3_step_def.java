@@ -4,6 +4,7 @@ import com.vytrack.utilities.TestBase;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class TC3_step_def extends TestBase {
 
@@ -13,8 +14,11 @@ public class TC3_step_def extends TestBase {
     }
     @Then("the truck driver should be able to click on the refresh button")
     public void the_truck_driver_should_be_able_to_click_on_the_refresh_button() {
+        wait.until(ExpectedConditions.elementToBeClickable(carEntitlesPage.refresh));
+        Assert.assertTrue(carEntitlesPage.refresh.isDisplayed());
+
         carEntitlesPage.refresh.click();
-     Assert.assertTrue(carEntitlesPage.refresh.isDisplayed());
+
 
     }
 }

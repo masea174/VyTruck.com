@@ -1,4 +1,4 @@
-@smoke
+@smoke @regression
 Feature: TC2 Verification of the "Export Grid" Left location
 
   Background:

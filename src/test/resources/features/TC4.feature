@@ -1,5 +1,5 @@
 
-@wip
+@smoke
 Feature: TC4 Verification the click functionality of the "Reset" button
 
   Background:
