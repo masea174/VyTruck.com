@@ -42,9 +42,6 @@ public class CarEntitlesPage {
     @FindBy(xpath = "//a[@title='Refresh']")
     public WebElement refresh;
 
-    @FindBy (xpath = "//label[@class='dib']")
-    public WebElement center;
-
 
     @FindBy (xpath = "//div[@class='dropdown-menu']")
     public WebElement popUpSettingsMenu;
