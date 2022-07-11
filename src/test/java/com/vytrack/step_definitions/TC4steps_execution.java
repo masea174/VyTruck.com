@@ -18,7 +18,7 @@ public class TC4steps_execution extends TestBase {
 
     @When("{string} see the reset button on the right side.")
     public void see_the_reset_button_on_the_right_side(String string) {
-        Assert.assertFalse(carEntitlesPage.isTheElementOnTheLeftSideOfPage(carEntitlesPage.reset));
+        carEntitlesPage.isTheElementOnTheRightSideOfPage(carEntitlesPage.reset);
     }
 
     @Then("{string} will be able to click reset button")

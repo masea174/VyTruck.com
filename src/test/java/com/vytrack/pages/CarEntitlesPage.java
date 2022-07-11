@@ -92,25 +92,22 @@ public class CarEntitlesPage {
 
     }
 
-    public boolean isTheElementOnTheLeftSideOfPage(WebElement element){
-        Point location = element.getLocation();
-        String locationStr=""+location;
-        locationStr=locationStr.replace("(","").replace(")","");
-        String[] locationArr=locationStr.split(", ");
-        locationStr=locationArr[0];
-        int intLocationEl=Integer.parseInt(locationStr);
+    public void isTheElementOnTheLeftSideOfPage(WebElement element){
+        int xElement = element.getLocation().getX();
+        int winWidth = Driver.getDriver().manage().window().getSize().getWidth();
+        int xCenter= winWidth/2;
 
-        Point locationCenterPage = center.getLocation();
-        String locationCenter=""+locationCenterPage;
-        locationCenter=locationCenter.replace("(","").replace(")","");
-        String[] locationCenterArray=locationCenter.split(", ");
-        locationCenter=locationCenterArray[0];
-        int intLocationCenter=Integer.parseInt(locationCenter);
-
-        return intLocationCenter>intLocationEl;
-
+        Assert.assertTrue(xCenter>xElement);
 
     }
 
+    public void isTheElementOnTheRightSideOfPage(WebElement element){
+        int xElement = element.getLocation().getX();
+        int winWidth = Driver.getDriver().manage().window().getSize().getWidth();
+        int xCenter=winWidth/2;
+
+        Assert.assertTrue(xCenter<xElement);
+
+    }
 
 }

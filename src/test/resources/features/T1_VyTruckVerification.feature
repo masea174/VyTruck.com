@@ -2,7 +2,7 @@
 @smoke
 Feature: Verification  the click functionality of the "Export Grid" Dropdown
  Background:
-  Given  Truck Driver on Vehicle Page
+  Given  "TruckDriver" is on "Vehicles" page
 
 Scenario: Verification  the click functionality of the "Export Grid" Dropdown
 
