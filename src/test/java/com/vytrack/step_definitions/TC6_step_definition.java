@@ -5,7 +5,6 @@ import com.vytrack.pages.DashboardPage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-
 public class TC6_step_definition {
     DashboardPage dashboardPage=new DashboardPage();
     CarEntitlesPage carEntitlesPage=new CarEntitlesPage();
