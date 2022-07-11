@@ -1,4 +1,7 @@
 @smoke @regression
+
+
+
   Feature:TC3 Verification the click functionality of the "Refresh" button
 Background:
   Given "TruckDriver" is on "Vehicles" page

@@ -1,5 +1,5 @@
 
-@smoke
+@smoke @wip2
 Feature: Verification  the click functionality of the "Export Grid" Dropdown
  Background:
   Given  "TruckDriver" is on "Vehicles" page

@@ -1,13 +1,17 @@
 package com.vytrack.step_definitions;
 
-import com.vytrack.utilities.TestBase;
+import com.vytrack.pages.CarEntitlesPage;
+import com.vytrack.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class TC3_step_def extends TestBase {
+public class TC3_step_def {
 
+    CarEntitlesPage carEntitlesPage=new CarEntitlesPage();
+    WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
     @When("the truck driver see the refresh button on the right side")
     public void the_truck_driver_see_the_refresh_button_on_the_right_side() {
        carEntitlesPage.isTheElementOnTheLeftSideOfPage(carEntitlesPage.refresh);

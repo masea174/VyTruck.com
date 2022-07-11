@@ -1,16 +1,15 @@
 package com.vytrack.pages;
 
 import com.vytrack.utilities.Driver;
-import com.vytrack.utilities.TestBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class DashboardPage extends TestBase {
+public class DashboardPage {
     public DashboardPage() {
         PageFactory.initElements(Driver.getDriver(), this);
     }
@@ -30,7 +29,7 @@ public class DashboardPage extends TestBase {
     @FindBy(xpath = "//span[.='Vehicle Odometer']")
     public WebElement vehicleOdometer;
 
-
+ WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
     public void hoverOverToFleet(String moduleName) throws Exception {
 
         Actions action = new Actions(Driver.getDriver());

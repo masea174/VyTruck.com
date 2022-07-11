@@ -1,5 +1,5 @@
 
-@wip
+@smoke
 Feature: TC5 Verification of the settings button
 Background:
 Given "TruckDriver" is on "Vehicles" page
