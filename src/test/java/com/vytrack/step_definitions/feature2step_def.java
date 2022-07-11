@@ -14,7 +14,7 @@ public class feature2step_def extends TestBase {
 
     @Then("Truck Driver should see it on the left side of the page")
     public void truckDriverShouldSeeItOnTheLeftSideOfThePage() {
-        Assert.assertTrue(carEntitlesPage.isTheElementOnTheLeftSideOfPage(carEntitlesPage.exportGrid));
+        carEntitlesPage.isTheElementOnTheLeftSideOfPage(carEntitlesPage.exportGrid);
 
     }
 }
