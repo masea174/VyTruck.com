@@ -8,11 +8,10 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
 
-public class TC4steps_execution extends TestBase {
+public class TC4_steps_execution extends TestBase {
 
     @Given("{string} is on {string} page")
     public void is_on_page(String truckDriver, String vehiclesPage) throws Exception {
-        Driver.getDriver().get(ConfigurationReader.getProperty("url"));
         loginPage.login(truckDriver);
         dashboardPage.hoverOverToFleet("Fleet");
         dashboardPage.clickSubModule(vehiclesPage);

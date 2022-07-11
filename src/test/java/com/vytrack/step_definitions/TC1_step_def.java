@@ -1,14 +1,12 @@
 package com.vytrack.step_definitions;
 
 import com.vytrack.utilities.TestBase;
-import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.junit.Test;
 import org.openqa.selenium.WebElement;
 
-public class TC1 extends TestBase {
+public class TC1_step_def extends TestBase {
 
     @When("Export Grid dropdown is clicked")
     public void export_grid_dropdown_is_clicked() {
