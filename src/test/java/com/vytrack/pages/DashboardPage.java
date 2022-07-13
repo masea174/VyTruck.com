@@ -29,7 +29,7 @@ public class DashboardPage {
     @FindBy(xpath = "//span[.='Vehicle Odometer']")
     public WebElement vehicleOdometer;
 
-    @FindBy(linkText = "Vehicle Contracts")
+    @FindBy(xpath = "//span[.='Vehicle Contracts']")
     public WebElement vehicleContractsBtn;
 
  WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
@@ -58,6 +58,9 @@ public class DashboardPage {
                 break;
             case "vehicle odometer":
                 vehicleOdometer.click();
+                break;
+            case "vehicle contracts":
+                vehicleContractsBtn.click();
                 break;
             default:
                 throw new Exception( "Unknown submodule name:" + vehicleName );

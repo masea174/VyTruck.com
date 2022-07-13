@@ -6,4 +6,4 @@ Feature: Store manager and sales manager has access to "All Vehicle Contracts" o
   Scenario:
     When store manager and sales manager scrolls to fleet module
     When store manager and sales manager clicks on Vehicle contracts
-    Then store manager and sales manager has access to All Vehicle Contracts on grid
+    Then store manager and sales manager has access to "All - Vehicle Contract - Entities - System - Car - Entities - System" on grid
