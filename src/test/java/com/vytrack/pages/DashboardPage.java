@@ -29,6 +29,9 @@ public class DashboardPage {
     @FindBy(xpath = "//span[.='Vehicle Odometer']")
     public WebElement vehicleOdometer;
 
+    @FindBy(linkText = "Vehicle Contracts")
+    public WebElement vehicleContractsBtn;
+
  WebDriverWait wait=new WebDriverWait(Driver.getDriver(),15);
     public void hoverOverToFleet(String moduleName) throws Exception {
 
