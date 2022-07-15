@@ -1,8 +1,9 @@
-
 @smoke
 Feature:TC6 Verification of the Refresh Button Right side Location left from Reset Button
+
   Background:
     Given "TruckDriver" is on "Vehicles" page
+
   Scenario:TC6 Verification of the Refresh Button Right side Location left from Reset Button
 
 

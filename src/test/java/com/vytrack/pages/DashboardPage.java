@@ -54,6 +54,7 @@ public class DashboardPage {
 
         switch (vehicleName.toLowerCase()) {
             case "vehicles":
+                wait.until(ExpectedConditions.elementToBeClickable(vehicles));
                 vehicles.click();
                 break;
             case "vehicle odometer":
