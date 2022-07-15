@@ -2,7 +2,6 @@
 @login @smoke
 Feature:  Truck driver login with valid credentials
 
-
   Background:
     Given  Truck driver is on the Login page
 
