@@ -1,5 +1,5 @@
 
-@login
+@login @smoke
 Feature:  Truck driver login with valid credentials
 
   Background:
